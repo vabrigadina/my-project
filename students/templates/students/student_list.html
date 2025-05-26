@@ -1,0 +1,66 @@
+{% extends 'students/base.html' %}
+{% block title %}Список студентов{% endblock %}
+{% block content %}
+<h1>Список студентов</h1>
+
+<!-- Фильтр по специализации -->
+<form method="get">
+    <label for="specialization">Фильтр по специализации:</label>
+    <select name="specialization" id="specialization">
+        <option value="">Все</option>
+        {% for spec_value, spec_name in specializations %}
+        <option value="{{ spec_value }}" {% if spec_value == selected_specialization %}selected{% endif %}>
+            {{ spec_name }}
+        </option>
+        {% endfor %}
+    </select>
+    <button type="submit">Фильтровать</button>
+</form>
+
+<!-- Таблица студентов -->
+<table>
+    <thead>
+        <tr>
+            <th><a href="?sort_by=full_name">ФИО</a></th>
+            <th><a href="?sort_by=program">Программа</a></th>
+            <th><a href="?sort_by=course">Курс</a></th>
+            <th><a href="?sort_by=group_number">Группа</a></th>
+            <th><a href="?sort_by=specialization">Специализация</a></th>
+            <th><a href="?sort_by=graduation_year">Год окончания</a></th>
+            <th><a href="?sort_by=average_grade">Средний балл</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.full_name }}</td>
+            <td>{{ student.program }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.group_number }}</td>
+            <td>{{ student.get_specialization_display }}</td>
+            <td>{{ student.graduation_year }}</td>
+            <td>{{ student.average_grade }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Статистика по специализациям -->
+<h2>Статистика по специализациям</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Специализация</th>
+            <th>Количество студентов</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in stats %}
+        <tr>
+            <td>{{ stat.name }}</td>
+            <td>{{ stat.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

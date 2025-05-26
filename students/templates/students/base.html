@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Моя образовательная программа{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'students:student_list' %}">Список студентов</a> |
+        <a href="{% url 'students:add_student' %}">Добавить студента</a>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
