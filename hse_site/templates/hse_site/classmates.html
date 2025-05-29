@@ -1,0 +1,40 @@
+{% extends 'hse_site/base.html' %}
+{% block content %}
+<h1>Мои сокурсники</h1>
+
+<!-- Форма для фильтрации по начальной русской букве -->
+<form method="get" action="">
+    <label for="letter">Фильтр по букве:</label>
+    <select name="letter" id="letter" onchange="this.form.submit()">
+        <option value="">Все</option>
+        {% for letter in "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ" %}
+            <option value="{{ letter }}" {% if letter == letter %} selected {% endif %}>{{ letter }}</option>
+        {% endfor %}
+    </select>
+    {% if letter %}
+        <span>Выбрана буква: <strong>{{ letter }}</strong></span>
+    {% endif %}
+</form>
+
+<!-- Ссылка для сортировки по email -->
+<div>
+    Сортировать по email:
+    <div></div>
+    <a href="?sort_order=asc{% if letter %}&letter={{ letter }}{% endif %}">От А до Я</a>
+    <div></div>
+    <a href="?sort_order=desc{% if letter %}&letter={{ letter }}{% endif %}">От Я до А</a>
+</div>
+
+<!-- Список сокурсников -->
+{% for classmate in classmates %}
+<h3>{{ classmate.name }}</h3>
+{% if classmate.photo %}
+<p><img src="{{ classmate.photo.url }}" alt="Фото {{ classmate.name }}" style="max-width: 200px;"></p>
+{% endif %}
+<p><strong>Email:</strong> <a href="mailto:{{ classmate.email }}">{{ classmate.email }}</a></p>
+<p><strong>Телефон:</strong> {{ classmate.phone }}</p>
+<hr>
+{% empty %}
+<p>Нет данных о сокурсниках.</p>
+{% endfor %}
+{% endblock %}

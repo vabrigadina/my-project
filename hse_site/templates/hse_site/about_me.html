@@ -1,0 +1,14 @@
+{% extends 'hse_site/base.html' %}
+{% block content %}
+<h1>Обо мне</h1>
+<p><strong>ФИО:</strong> {{ about.full_name }}</p>
+{% if about.photo %}
+<p><img src="{{ about.photo.url }}" alt="Фото"></p>
+{% endif %}
+<p><strong>Email:</strong> <a href="mailto:{{ about.email }}">{{ about.email }}</a></p>
+<p><strong>Телефон:</strong> {{ about.phone }}</p>
+{% if about.resume %}
+<p><strong>Резюме:</strong></p>
+<p><img src="{{ about.resume.url }}" alt="Резюме"></p>
+{% endif %}
+{% endblock %}

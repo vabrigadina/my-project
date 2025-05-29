@@ -9,7 +9,8 @@
 <body>
     <nav>
         <a href="{% url 'students:student_list' %}">Список студентов</a> |
-        <a href="{% url 'students:add_student' %}">Добавить студента</a>
+        <a href="{% url 'students:add_student' %}">Добавить студента</a> |
+        <a href="{% url 'hse_site:about_me' %}">Я и мое обучение в Вышке</a>
     </nav>
     {% block content %}
     {% endblock %}

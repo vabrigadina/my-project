@@ -1,0 +1,15 @@
+{% extends 'hse_site/base.html' %}
+{% block title %}Описание образовательной программы{% endblock %}
+{% block content %}
+<h1>Описание образовательной программы</h1>
+{% if program %}
+    <p><strong>Название:</strong> {{ program.name }}</p>
+    <p><strong>Ссылка:</strong> <a href="{{ program.link }}">{{ program.link }}</a></p>
+    <p><strong>Что я изучаю:</strong> {{ program.what_i_study }}</p>
+    <p><strong>Чему научусь:</strong> {{ program.what_i_learn }}</p>
+    <p><strong>Преимущества программы:</strong> {{ program.benefits }}</p>
+    <p><strong>Перспективы:</strong> {{ program.prospects }}</p>
+{% else %}
+    <p>Данные программы отсутствуют.</p>
+{% endif %}
+{% endblock %}

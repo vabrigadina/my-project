@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
-class StudentsConfig(AppConfig):
+class HseSiteConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'students'
+    name = 'hse_site'

@@ -1,0 +1,17 @@
+{% extends 'hse_site/base.html' %}
+{% block content %}
+<h1>Менеджмент на моей образовательной программе</h1>
+<h2>Академический руководитель</h2>
+<p><strong>Имя:</strong> {{ management.academic_director_name }}</p>
+{% if management.academic_director_photo %}
+<p><img src="{{ management.academic_director_photo.url }}" alt="Фото академического руководителя"></p>
+{% endif %}
+<p><strong>Email:</strong> <a href="mailto:{{ management.academic_director_email }}">{{ management.academic_director_email }}</a></p>
+
+<h2>Менеджер ОП</h2>
+<p><strong>Имя:</strong> {{ management.program_manager_name }}</p>
+{% if management.program_manager_photo %}
+<p><img src="{{ management.program_manager_photo.url }}" alt="Фото менеджера ОП"></p>
+{% endif %}
+<p><strong>Email:</strong> <a href="mailto:{{ management.program_manager_email }}">{{ management.program_manager_email }}</a></p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Я и мое обучение в Вышке{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    </head>
+<body>
+    <nav>
+        <a href="{% url 'hse_site:about_me' %}">Я</a> |
+        <a href="{% url 'hse_site:educational_program' %}">Описание моей ОП</a> |
+        <a href="{% url 'hse_site:management' %}">Менеджмент на моей ОП</a> |
+        <a href="{% url 'hse_site:classmates' %}">Мои сокурсники</a> |
+        <a href="{% url 'students:student_list' %}">Список студентов</a>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
