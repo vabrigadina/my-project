@@ -5,7 +5,7 @@ body {
     background-color: #f4f4f4;
 }
 nav {
-    background-color: #004080;
+    background-color: #9dbdde;
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -18,7 +18,7 @@ nav a:hover {
     text-decoration: underline;
 }
 h1 {
-    color: #004080;
+    color: #9dbdde;
 }
 table {
     width: 100%;
@@ -31,20 +31,20 @@ th, td {
     text-align: left;
 }
 th {
-    background-color: #004080;
+    background-color: #9dbdde;
     color: white;
 }
 button {
     padding: 8px 16px;
-    background-color: #004080;
+    background-color: #9dbdde;
     color: white;
     border: none;
     cursor: pointer;
 }
 button:hover {
-    background-color: #003366;
+    background-color: #9dbdde;
 }
 img {
-    max-width: 100%;
+    max-width: 20%;
     height: auto;
 }
